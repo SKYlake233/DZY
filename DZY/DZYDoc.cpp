@@ -190,8 +190,19 @@ void CDZYDoc::showCompany(CDC* pDC, int x, int y)
 				y += 20;
 			}
 		}
-		y += 10;
+		y += 20;
 	}
+}
+
+bool CDZYDoc::checkCompany(CString name)
+{
+	for (int i = 0; i < compObjs->GetCount(); i++)
+	{
+		Company* comp_t = (Company*)compObjs->GetAt(i);
+		if (comp_t->get_name() == name)
+			return true;
+	}
+	return false;
 }
 
 void CDZYDoc::delProduct(CString name)
@@ -276,6 +287,17 @@ void CDZYDoc::delProductCompName(CString company_name)
 		}
 	}
 	SetModifiedFlag();
+}
+
+bool CDZYDoc::checkProduct(CString name)
+{
+	for (int i = 0; i < prodObjs->GetCount(); i++)
+	{
+		Product* prod_t = (Product*)prodObjs->GetAt(i);
+		if (prod_t->get_name() == name)
+			return true;
+	}
+	return false;
 }
 
 // CDZYDoc 命令

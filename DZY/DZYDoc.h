@@ -55,6 +55,7 @@ public:
 	void updCompany(Company* comp);
 	void delCompany(CString name);
 	void showCompany(CDC* pDC, int x, int y);
+	bool checkCompany(CString name);
 	Company* findCompany(CString name);
 	//product oprations
 	void addProduct(Product* prod);
@@ -63,4 +64,5 @@ public:
 	Product* findProduct(CString name);
 	void updProductCompName(CString before, CString now);
 	void delProductCompName(CString company_name);
+	bool checkProduct(CString name);
 };

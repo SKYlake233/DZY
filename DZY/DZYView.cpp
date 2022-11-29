@@ -115,7 +115,12 @@ void CDZYView::OnAdd()
 		comp->set_name(Dlg.name);
 		comp->set_address(Dlg.address);
 		comp->set_phone(Dlg.phone);
+		//check条件
 		CDZYDoc* pDOC = GetDocument();
+		if (pDOC->checkCompany(Dlg.name)) {
+			MessageBox(L"已存在公司名", L"error", 0);
+			return;
+		}
 		pDOC->addCompany(comp);
 		Invalidate();
 	}
@@ -141,6 +146,11 @@ void CDZYView::OnUpd()
 				comp_t->set_name(Dlg.name);
 				comp_t->set_address(Dlg.address);
 				comp_t->set_phone(Dlg.phone);
+				//check条件
+				if (pDoc->checkCompany(Dlg.name)) {
+					MessageBox(L"已存在公司名", L"error", 0);
+					return;
+				}
 				pDoc->updProductCompName(name, Dlg.name);
 				Invalidate();
 			}
@@ -181,6 +191,11 @@ void CDZYView::OnProdAdd()
 		prod->set_company_name(company_name);
 		prod->set_name(Dlg.name);
 		prod->set_count(Dlg.count);
+		//check条件
+		if (pDoc->checkProduct(Dlg.name)) {
+			MessageBox(L"已存在商品名", L"error", 0);
+			return;
+		}
 		pDoc->addProduct(prod);
 		Invalidate();
 	}
@@ -222,11 +237,17 @@ void CDZYView::OnProdUpd()
 			PDlg.company_name = prod->get_company_name();
 			PDlg.count = prod->get_count();
 			ret = PDlg.DoModal();
+			if (pDoc->checkProduct(PDlg.name)) {
+				MessageBox(L"已存在商品名", L"error", 0);
+				return;
+			}
 			if (pDoc->findCompany(PDlg.company_name) != NULL) {
 				if (ret == IDOK) {
+					
 					prod->set_company_name(PDlg.company_name);
 					prod->set_name(PDlg.name);
 					prod->set_count(PDlg.count);
+					
 					Invalidate();
 					return;
 				}

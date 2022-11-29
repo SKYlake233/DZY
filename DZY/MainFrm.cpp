@@ -34,7 +34,7 @@ static UINT indicators[] =
 };
 
 // CMainFrame 构造/析构
- 
+
 CMainFrame::CMainFrame() noexcept
 {
 	// TODO: 在此添加成员初始化代码
