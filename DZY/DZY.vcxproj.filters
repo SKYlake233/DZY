@@ -57,6 +57,9 @@
     <ClInclude Include="ProdDlgFind.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="DlgSale.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DZY.cpp">
@@ -90,6 +93,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="ProdDlgFind.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="DlgSale.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

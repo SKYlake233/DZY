@@ -186,6 +186,7 @@
     <ClInclude Include="Company.h" />
     <ClInclude Include="CompDlg.h" />
     <ClInclude Include="CompDlgFind.h" />
+    <ClInclude Include="DlgSale.h" />
     <ClInclude Include="DZY.h" />
     <ClInclude Include="DZYDoc.h" />
     <ClInclude Include="DZYView.h" />
@@ -202,6 +203,7 @@
     <ClCompile Include="Company.cpp" />
     <ClCompile Include="CompDlg.cpp" />
     <ClCompile Include="CompDlgFind.cpp" />
+    <ClCompile Include="DlgSale.cpp" />
     <ClCompile Include="DZY.cpp" />
     <ClCompile Include="DZYDoc.cpp" />
     <ClCompile Include="DZYView.cpp" />

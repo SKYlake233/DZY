@@ -14,6 +14,7 @@
 #define IDR_TOOLBAR1                    320
 #define IDI_ICON1                       323
 #define IDR_MENU2                       324
+#define IDD_DIALOG2                     325
 #define IDC_EDIT_name                   1000
 #define IDC_EDIT_PHONE                  1002
 #define IDC_COMBO_address               1003
@@ -50,7 +51,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        325
+#define _APS_NEXT_RESOURCE_VALUE        327
 #define _APS_NEXT_COMMAND_VALUE         32810
 #define _APS_NEXT_CONTROL_VALUE         1009
 #define _APS_NEXT_SYMED_VALUE           310

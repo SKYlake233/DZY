@@ -16,6 +16,7 @@
 #include"CompDlgFind.h"
 #include"ProdDlg.h"
 #include"ProdDlgFind.h"
+#include"DlgSale.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -143,14 +144,14 @@ void CDZYView::OnUpd()
 			Dlg.phone = comp_t->get_phone();
 			ret = Dlg.DoModal();
 			if (ret == IDOK) {
-				comp_t->set_name(Dlg.name);
-				comp_t->set_address(Dlg.address);
-				comp_t->set_phone(Dlg.phone);
 				//check条件
 				if (pDoc->checkCompany(Dlg.name)) {
 					MessageBox(L"已存在公司名", L"error", 0);
 					return;
 				}
+				comp_t->set_name(Dlg.name);
+				comp_t->set_address(Dlg.address);
+				comp_t->set_phone(Dlg.phone);
 				pDoc->updProductCompName(name, Dlg.name);
 				Invalidate();
 			}
@@ -212,8 +213,19 @@ void CDZYView::OnProdDel()
 		CDZYDoc* pDoc = GetDocument();
 		Product* prod = pDoc->findProduct(name);
 		if (prod != NULL) {
-			pDoc->delProduct(name);
-			Invalidate();
+			//售卖窗口  选择售卖几个沙发
+			DlgSale SDlg;
+			SDlg.name = prod->get_name();
+			SDlg.count = prod->get_count();
+			ret = SDlg.DoModal();
+			if (prod->get_count() >= SDlg.sale_count) {
+				prod->set_count(prod->get_count() - SDlg.sale_count);
+				Invalidate();
+				MessageBox(L"售卖成功", L"售卖成功", 0);
+				return;
+			}
+			//pDoc->delProduct(name);
+			
 		}
 		else {
 			MessageBox(L"error", L"error", 0);
